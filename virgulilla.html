@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .PrimerTitulo + h2 {
+  background-color: red;
+}
+</style>
+<body>
+    <article class="ContenedorPadre">
+        <h2 class="PrimerTitulo">Este es el primer elemento H2</h2>
+        <!-- Este título tendrá color de fondo rojo -->
+        <h2>Este es el segundo elemento H2</h2>
+        <div class="ElementoPadreDiferente">
+            <!-- Este título NO tendrá color de fondo rojo porque su padre es diferente -->
+          <h2>Este es el tercer elemento H2</h2>
+        </div>
+        <!-- Este título también tendrá color de fondo rojo -->
+        <h2>Este es el cuarto elemento H2</h2>
+      </article>
+</body>
+</html>

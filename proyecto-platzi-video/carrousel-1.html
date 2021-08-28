@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrousel 1</title>
+</head>
+<style>
+    body {
+    margin: 0px;
+    }
+
+    .Carrousel{
+        width: 100%; /* Width del 100% para que abarque toda la pantalla*/
+        overflow: scroll; /*Con overflow establecemos la propiedad de scroll*/
+        padding: 30px; /*Para tener un margen de vista*/
+        position: relative;/*Todos los elementos que esten dentro de el se van a posicionar en relación al padre*/
+
+    }
+
+    .Carrousel__container{
+        white-space: nowrap;/*wrap significa que estamos envolviendo y nowrap es no envolver. En lista todos los elementos
+                             en un solo renglón*/
+        margin: 70px 0px; 
+        padding-bottom: 10px;/*para evitar que se nos corte el elemento cuando hagamos hover.*/
+        
+    }
+
+    .Carrousel-item{
+        background-color: palegreen; /*Color, altura, anchura*/
+        width: 200px;
+        height: 250px;
+        border-radius: 20px; /*Que tan curvo queremos nuestro borde*/
+        overflow: hidden; /* El desbordamiento se recorta y el resto del contenido sera invisble (caso imagenes)*/ 
+        margin-right: 10px; /*Separcion entre elementos*/
+        display: inline-block; /*Un item al lado del otro, respetando el width y el height*/
+        cursor: pointer;/*Cambia el icono del mouse cuando selecciona el elemento*/
+        transition: 450ms all; /*Suaviza la transcision para que se vea agradable*/
+        transform-origin: center left;/*Ajusta los elementos para que no se salgan y empiece en el centro de izq a derecha permite modificar el 
+                                        origen de las transformacionesde un elemento*/
+        position: relative;/* Coger los estilos y ser relativo a ese padre*/
+    }
+
+   .Carrousel-item:hover ~ .Carrousel-item{/*Cuando hagamos hover y cuando este sin el hover. 
+                                               virgulilla ~ conjunto de selectores llamados combinadores los cuales permite hacer una combinacion de selectores mas
+                                               simples, el segundo elemento sigue al primero ambos comparten el mismo elemento padre.
+                                               separa dos selectores y selecciona el segundo elemento solo si esta precedido por el primero y ambos 
+                                               comparten un padre comun*/ 
+        transform: translate3d(100px, 0, 0); /*Cuando hagamos hover todos los elementos se desplazan hacia la derecha*/
+   }
+
+   .Carrousel__container:hover .Carrousel-item{/*Cuando le haga hover al .Carrousel__container va a tomar los .Carrousel-item y les va a bajar la opacidad*/
+        opacity: 0.3;
+   }
+
+   .Carrousel__container:hover .Carrousel-item:hover{/*Unicamente el item, que se encuentre en estado hover recibira los cambios hechos dentro del selector 
+                                                        y .Carrousel__container:hover solo indica que el carrousel se encuentra en hover */
+        transform: scale(1.5);/*Escala en 1.5 la imagen seleccionada*/
+        opacity: 1; /*Cuando le haga hover a un elemento especifico, pone la opacidad en 1.*/
+   }
+
+   .Carrousel-item__img {
+       width: 200px;
+       height: 250px;
+       object-fit: cover; /*Con esta propiedad haces que la imagen no se deforme ya que respeta su tamaño original*/
+   }
+
+   .Carrousel-item__details{
+        background: linear-gradient(to top, rgb(0, 0, 0, 0.9) 0%, rgb(0, 0, 0, 0)  100%); /*Con este valor se pueden realizar degradados o desvanecidos*/
+        font-size: 10px; /*Dimension de la letra*/ 
+        opacity: 0;
+        transition: 450ms opacity;
+        padding: 10px;
+        position: absolute;
+        top: 180px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+  }
+
+  .Carrousel-item:hover .Carrousel-item__details {
+        opacity: 1;
+  }
+
+  .Carrousel-item__details img{
+        width: 20px;
+  }
+
+  .Carrousel-item__details--title{
+        font-size:10px;
+        font-weight: bold;
+        color: #FFFFFF;
+        line-height: 0;/*Espacio entre reglones*/
+  }
+
+  .Carrousel-item__details--subtitle{
+        font-size: 7px;
+        color: #FFFFFF;
+  }
+</style>
+
+<body>
+    <section class="Carrousel">
+       <div class="Carrousel__container">
+
+        <div class="Carrousel-item">
+            <img class="Carrousel-item__img" src="/pexels-ben-mack-5326898.jpg" alt="Agua">
+            
+            <div class="Carrousel-item__details"> <!--Encierra todos los detalles de nuestro item como botones o titulo-->
+                <div><!--Este div se agrga porque queremos que las dos imagenes de abajo vaya una seguida se la otra, es decir, esten alineados de forma horizontal-->
+                    <img src="/icons8-play-64.png" alt="Play">
+                    <img src="/icons8-más-64.png" alt="Plus">
+                </div>
+                <p class="Carrousel-item__details--title">Titulo descriptivo</p>
+                <p class="Carrousel-item__details--subtitle">2019 16+ 114 minutos</p>
+            </div>
+        </div>
+        
+        <div class="Carrousel-item">
+            <img class="Carrousel-item__img" src="/pexels-cliford-mervil-2469122.jpg" alt="Noche">
+            
+            <div class="Carrousel-item__details"> <!--Encierra todos los detalles de nuestro item como botones o titulo-->
+                <div><!--Este div se agrga porque queremos que las dos imagenes de abajo vaya una seguida se la otra, es decir, esten alineados de forma horizontal-->
+                    <img src="/icons8-play-64.png" alt="Play">
+                    <img src="/icons8-más-64.png" alt="Plus">
+                </div>
+                <p class="Carrousel-item__details--title">Titulo descriptivo</p>
+                <p class="Carrousel-item__details--subtitle">2019 16+ 114 minutos</p>
+            </div>
+        </div>
+
+        <div class="Carrousel-item">
+            <img class="Carrousel-item__img" src="/pexels-darya-gryazeva-8519075.jpg" alt="Trigo">
+            
+            <div class="Carrousel-item__details"> <!--Encierra todos los detalles de nuestro item como botones o titulo-->
+                <div><!--Este div se agrga porque queremos que las dos imagenes de abajo vaya una seguida se la otra, es decir, esten alineados de forma horizontal-->
+                    <img src="/icons8-play-64.png" alt="Play">
+                    <img src="/icons8-más-64.png" alt="Plus">
+                </div>
+                <p class="Carrousel-item__details--title">Titulo descriptivo</p>
+                <p class="Carrousel-item__details--subtitle">2019 16+ 114 minutos</p>
+            </div>
+        </div>
+
+        <div class="Carrousel-item">
+            <img class="Carrousel-item__img" src="/pexels-matheus-viana-4423461.jpg" alt="Matas">
+            
+            <div class="Carrousel-item__details"> <!--Encierra todos los detalles de nuestro item como botones o titulo-->
+                <div><!--Este div se agrga porque queremos que las dos imagenes de abajo vaya una seguida se la otra, es decir, esten alineados de forma horizontal-->
+                    <img src="/icons8-play-64.png" alt="Play">
+                    <img src="/icons8-más-64.png" alt="Plus">
+                </div>
+                <p class="Carrousel-item__details--title">Titulo descriptivo</p>
+                <p class="Carrousel-item__details--subtitle">2019 16+ 114 minutos</p>
+            </div>
+        </div>
+
+        <div class="Carrousel-item">
+            <img class="Carrousel-item__img" src="/pexels-olga-lioncat-7245594.jpg" alt="lioncat">
+            
+            <div class="Carrousel-item__details"> <!--Encierra todos los detalles de nuestro item como botones o titulo-->
+                <div><!--Este div se agrga porque queremos que las dos imagenes de abajo vaya una seguida se la otra, es decir, esten alineados de forma horizontal-->
+                    <img src="/icons8-play-64.png" alt="Play">
+                    <img src="/icons8-más-64.png" alt="Plus">
+                </div>
+                <p class="Carrousel-item__details--title">Titulo descriptivo</p>
+                <p class="Carrousel-item__details--subtitle">2019 16+ 114 minutos</p>
+            </div>
+        </div>
+
+        <div class="Carrousel-item">
+            <img class="Carrousel-item__img" src="/pexels-sasha-maslova-8767702.jpg" alt="Tarde">
+            
+            <div class="Carrousel-item__details"> <!--Encierra todos los detalles de nuestro item como botones o titulo-->
+                <div><!--Este div se agrga porque queremos que las dos imagenes de abajo vaya una seguida se la otra, es decir, esten alineados de forma horizontal-->
+                    <img src="/icons8-play-64.png" alt="Play">
+                    <img src="/icons8-más-64.png" alt="Plus">
+                </div>
+                <p class="Carrousel-item__details--title">Titulo descriptivo</p>
+                <p class="Carrousel-item__details--subtitle">2019 16+ 114 minutos</p>
+            </div>
+        </div>
+
+       </div> 
+
+       
+    </section>
+</body>
+</html>

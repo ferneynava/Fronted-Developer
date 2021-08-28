@@ -1,0 +1,85 @@
+body{
+    margin: 0px;
+    font-family: 'Mulish', sans-serif;
+}
+.header{
+    background-color: #FFE53B;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+
+.header__img{
+    width: 200px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.section__container{
+    background: linear-gradient(#FFE53B, #FF2525);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 200px);
+    padding: 0px 30px;
+}
+
+.text{
+    margin: 0px;
+    font-size:50px;
+    font-weight: bold;
+    color: white;
+    font-family: 'Mulish', sans-serif;
+    text-transform: uppercase;
+}
+
+.animated{
+    animation-duration: 2.5s;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite; 
+}
+
+
+.section__container p{
+    color:white;
+    font-family: 'Mulish', sans-serif;
+    font-size:16px;
+}
+
+.footer{
+    background-color: #FF2525;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 120px;
+    width: 100%;
+}
+
+.footer a{
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    padding-left: 30px;
+    text-decoration: none;
+}
+
+.footer a:hover{
+    text-decoration: underline;
+}
+
+@keyframes pulse {
+    0% {transform: scale(2);}
+    50% {transform: scale(1.1);}
+    100% {transform: scale(2);}
+  }
+  .pulse {
+    animation-name: pulse;
+    animation-duration: 1s;
+  }
+
+
+
+
+
